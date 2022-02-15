@@ -7,6 +7,7 @@ const userConnectionSchema = new mongoose.Schema({
   phone: { type: String, required: true, unique: true },
   age: { type: String, required: false },
   gender: { type: String, required: false },
+  uuid: { type: String, required:true },
 });
 
 const User = mongoose.model("User", userConnectionSchema);
