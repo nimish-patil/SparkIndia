@@ -1,16 +1,17 @@
-import User from "../models/userModal";
+import User from "../models/userModal.js";
 import express from "express";
 const router = express.Router();
-import { uuid } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
+  console.log(req.body);
   const user = new User({
-    uuid: uuid(),
-    username: req.User.username,
-    email: req.User.email,
-    age: req.User.age,
-    phone: req.User.phone,
-    password: req.User.password,
+    uuid: uuidv4(),
+    username: req.body.username,
+    email: req.body.email,
+    age: req.body.age,
+    phone: req.body.phone,
+    password: req.body.password,
   });
   console.log(user);
   const response = await user.save();
@@ -18,4 +19,4 @@ router.post("/", (req, res) => {
     uid: `${response.uuid}`,
   });
 });
-module.exports = router;
+export default router;

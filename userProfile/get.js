@@ -1,4 +1,4 @@
-import User from "../models/userModal";
+import User from "../models/userModal.js";
 import express from "express";
 const router = express.Router();
 
@@ -14,4 +14,4 @@ router.get("/:uuid", (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
