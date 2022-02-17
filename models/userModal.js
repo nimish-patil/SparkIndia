@@ -1,12 +1,12 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const userConnectionSchema = new Schema(
   {
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    phone: { type: String, required: true, unique: true },
+    email: { type: String, required: true },
+    phone: { type: String, required: true },
     age: { type: String, required: false },
     gender: { type: String, required: false },
     uuid: { type: String, required: true },
@@ -14,5 +14,5 @@ const userConnectionSchema = new Schema(
   { timestamps: true }
 );
 
-const User = mongoose.model("User", userConnectionSchema);
+const User = mongoose.model('User', userConnectionSchema);
 export default User;
